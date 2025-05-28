@@ -1,0 +1,71 @@
+area previa a la siguiente clase
+
+A. Programación en Java
+
+1. Terminar la función de reloj
+
+Completa una función en Java que simule el comportamiento de un reloj en formato de 24 horas.
+
+El reloj debe:
+
+Aceptar horas, minutos.
+
+Validar que los valores estén dentro del rango (00–23 para horas, 00–59 para minutos y segundos).
+
+Poder avanzar el tiempo (sumar horas y minutos).
+
+
+Restricción: No uses funciones de fecha/hora ya hechas de Java (LocalTime, Calendar, etc.).
+
+2. Crear clases en Java
+
+¿Qué es un objeto en Java?
+
+¿Qué es un constructor y como se usa?
+
+¿Qué es el método toString() en Java?
+
+¿Qué es Herencia en Java?
+
+Crea las siguientes clases en archivos separados:
+
+- Pato
+- Ave
+- Gallo
+- Reloj
+
+No es necesario que tengan mucha funcionalidad todavía.
+
+Solo asegúrate de:
+
+Usar el nombre de clase correcto (iniciando con mayúscula).
+
+Incluir al menos atributos y un constructor por clase.
+
+
+3. Integrar en el código
+
+Convenciones básicas de documentación
+
+Investiga cómo se comenta correctamente en Java:
+
+Comentarios de línea (//)
+
+Comentarios de bloque (/* */)
+
+Comentarios de documentación (/** ... */)
+
+
+Usa estos tipos de comentarios dentro de tus clases y funciones.
+
+B. Uso de GitHub
+
+1. Documentación de cambios
+
+Cada archivo que crees o edites debe tener comentarios explicativos en el código.
+
+Cada vez que hagas commit, escribe un mensaje claro que explique el cambio realizado.
+
+2. Subida a GitHub
+
+Asegúrate de hacer add, commit y push de todos los archivos creados/modificados al repositorio de GitHub antes de la clase.
