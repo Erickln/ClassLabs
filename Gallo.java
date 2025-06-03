@@ -13,7 +13,7 @@ class Gallo extends Ave {
     }
 }
 
-class Main {
+/* class Main {
 
     public static void main(String[] args) {
         Gallo gallito = new Gallo("Rojo");
@@ -28,3 +28,4 @@ class Main {
     }
     
 }
+ */
