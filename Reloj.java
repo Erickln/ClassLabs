@@ -5,14 +5,16 @@ public class Reloj {
 
     private String meridiano = "";
 
-    final private String meridianoAM = "AM";
-    final private String meridianoPM = "PM";
+    public static int cantidadDeRelojes = 0;
+    final public static String meridianoAM = "AM";
+    final public static String meridianoPM = "PM";
 
 
     public Reloj(int horas, int minutos, String meridiano){
         this.horas      = horas;
         this.minutos    = minutos;
         this.meridiano  = meridiano;
+        cantidadDeRelojes++;
     }
 
     void setHoras(int horas){
@@ -40,7 +42,7 @@ public class Reloj {
         return this.minutos;
     }
 
-    public void setMeridiano(String meridiano) { //TODO Tarea
+    public void setMeridiano(String meridiano) {//TODO terminar el método
         //AM
         //PM
         if (meridiano == "AM" ) {
@@ -62,11 +64,11 @@ public class Reloj {
         return meridiano;
     }
 
-    void sumarHoras(int horasASumar){ //TODO 
+    void sumarHoras(int horasASumar){ //TODO terminar el método
         // La hora final debe ser válida
     }
     
-    void sumarMinutos(int horasASumar){ //TODO
+    void sumarMinutos(int horasASumar){ //TODO terminar el método
         // La hora final debe ser válida
     }
 
@@ -118,7 +120,78 @@ class Main {
 
         System.out.println(miReloj);
         System.out.println(miReloj.toString()); // TODO investigar cuando se usa o no el toString()
+
+        System.out.println(Reloj.cantidadDeRelojes);
+
+        System.out.println(miReloj.getMeridiano() == Reloj.meridianoAM || miReloj.getMeridiano() == Reloj.meridianoPM);
+
+        miReloj.sumarHoras(5);
+
+        
+        System.out.println(miReloj.getHoras()==3);
+
+        miReloj.sumarMinutos(87);
+
+        
+        System.out.println(miReloj.getHoras()==4);
+        System.out.println(miReloj.getHoras()==37);
+
+
+        if ("AM" == Reloj.meridianoAM || "AM" == Reloj.meridianoPM){
+        miReloj.setMeridiano("AM");
+        }
+
+        
+        System.out.println(miReloj.getMeridiano() == Reloj.meridianoAM || miReloj.getMeridiano() == Reloj.meridianoPM);
+
+        
+        miReloj.sumarHoras(15);
+
+
+        
+        System.out.println(miReloj.getHoras()==7);
+        System.out.println(miReloj.getHoras()==37);
+        System.out.println(miReloj.getMeridiano()=="PM");
+
+
+        miReloj.sumarHoras(-540);
+        miReloj.sumarMinutos(-30);
+        miReloj.setMeridiano("DX");
+
+
+        //TODO Investigar covneciones de nombres de varaibles, métodos y clases
+        //TODO agregar comentarios descriptivos y nombres de varaibles significativos
+        //TODO Investigar variable genéricas
+        /**TODO Crear la clase Calculadora:
+         * Poder Sumar, restar, multiplcar, dividir, exponenciales y logaritmos. 
+         * (Al menos dos métodos de esta clase deben de reutilizar código de si mismo) 
+         * Todos los métodos van a ser estáticos
+         * Contener constantes significativas de calculadora, PI, Euler, ...
+         * Un atributo ANS que guarde el último resultado que haya regresado algún método de la clase
+         * 
+         * areaDeUnCirculo{
+         * 
+         *  return Calculadora.exponencial(Calculadora.PI,2) * 10
+         * 
+         * 
+         * }
+         * 
+         * 
+         * 
+         * Métodos para:
+         * Sacar el area de cuadrado
+         * Sacar el area de circulo
+         * Sacar el area de esfera
+         * Sacar el area de dodecaedro
+         * 
+         **/
+
+
+
+
     }    
+    
+    static{System.out.println("statico");}
 
 }
 

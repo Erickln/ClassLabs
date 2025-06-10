@@ -1,12 +1,12 @@
-class Pato {
+class Pato extends Ave {
     private String  color;
     private int     patas;
     private int     alas;
     private int     plumas;
 
     public Pato(String color_de_pato){
+        super(color_de_pato);
         System.out.println("Hola soy un pato");
-        color = color_de_pato;
     }
 
     // Getters
@@ -24,13 +24,13 @@ class Pato {
         System.out.println("El pato está planeando");
     }
 
+    @Override
     void comer(){
         System.out.println("El pato está comiendo");
     }
 
     void gaznar(){
         System.out.println("El pato está gaznando");
-
     }
 }
 
