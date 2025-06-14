@@ -1,7 +1,7 @@
 public class Reloj {
 
     private int horas,
-                minutos;
+            minutos;
 
     private String meridiano = "";
 
@@ -9,16 +9,15 @@ public class Reloj {
     final public static String meridianoAM = "AM";
     final public static String meridianoPM = "PM";
 
-
-    public Reloj(int horas, int minutos, String meridiano){
-        this.horas      = horas;
-        this.minutos    = minutos;
-        this.meridiano  = meridiano;
+    public Reloj(int horas, int minutos, String meridiano) {
+        this.horas = horas;
+        this.minutos = minutos;
+        this.meridiano = meridiano;
         cantidadDeRelojes++;
     }
 
-    void setHoras(int horas){
-        if( horas >= 1 && horas <= 12 ){
+    void setHoras(int horas) {
+        if (horas >= 1 && horas <= 12) {
             this.horas = horas;
         }
 
@@ -26,50 +25,61 @@ public class Reloj {
         return;
     }
 
-    int getHoras(){
+    int getHoras() {
         return this.horas;
     }
 
-    void setMinutos(int minutos){
-        if (minutos >= 0 && minutos <= 60) {
+    void setMinutos(int minutos) {
+        if (minutos >= 0 && minutos <= 59) {
             this.minutos = minutos;
+        } else {
+            System.out.println("Cantidad de minutos a modificar inválida");
         }
-        System.out.println("Cantidad de minutos a modificar inválida");
-        return;
     }
 
-    int getMinutos(){
+    int getMinutos() {
         return this.minutos;
     }
 
-    public void setMeridiano(String meridiano) {//TODO terminar el método
-        //AM
-        //PM
-        if (meridiano == "AM" ) {
-            
-        } else{
+    public void setMeridiano(String meridiano) {
+        if (meridiano.equals("AM") || meridiano.equals("PM")) {
+            this.meridiano = meridiano;
+        } else {
             System.out.println("El meridiano proporcionado no es válido");
         }
-        if (meridiano == "PM") {
-            
-        } else{
-            System.out.println("El meridiano proporcionado no es válido");
-        }
-
-
-        this.meridiano = meridiano;
     }
 
     public String getMeridiano() {
-        return meridiano;
+        return this.meridiano;
     }
 
-    void sumarHoras(int horasASumar){ //TODO terminar el método
-        // La hora final debe ser válida
+    void sumarHoras(int horasASumar) {
+        if (horasASumar <= 0)
+            return;
+
+        int totalHoras = this.horas + horasASumar;
+        while (totalHoras > 12) {
+            totalHoras -= 12;
+            cambiarMeridiano(); // TODO Crear el método para que funcione
+        }
+        this.horas = totalHoras;
     }
-    
-    void sumarMinutos(int horasASumar){ //TODO terminar el método
-        // La hora final debe ser válida
+
+
+
+    void sumarMinutos(int minutosASumar) {
+        if (minutosASumar <= 0)
+            return;
+
+        int totalMinutos = this.minutos + minutosASumar;
+        int horasExtra = totalMinutos / 60;
+        this.minutos = totalMinutos % 60;
+        sumarHoras(horasExtra);
+    }
+
+    void cambiarMeridiano(){
+        //this.meridiano = this.meridiano.equals(meridiano);
+
     }
 
     @Override
@@ -77,8 +87,8 @@ public class Reloj {
         return this.horas + ":" + this.minutos + " " + this.meridiano;
     }
 
-    //TODO Investigar métodos, atrivutos y clases estáticos con identifiadores "static"
 }
+
 
 class Main {
 
