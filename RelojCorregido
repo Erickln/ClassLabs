@@ -1,0 +1,83 @@
+public class Main {
+    public class Reloj {
+
+    private int horas,
+                minutos;
+
+    private String meridiano = "";
+
+    public static int cantidadDeRelojes = 0;
+    final public static String meridianoAM = "AM";
+    final public static String meridianoPM = "PM";
+
+
+    public Reloj(int horas, int minutos, String meridiano){
+        this.horas      = horas;
+        this.minutos    = minutos;
+        this.meridiano  = meridiano;
+        cantidadDeRelojes++;
+    }
+
+    void setHoras(int horas){
+        if( horas >= 1 && horas <= 12 ){
+            this.horas = horas;
+        }
+
+        System.out.println("Cantidad de horas a modificar inválida");
+        return;
+    }
+
+    int getHoras(){
+        return this.horas;
+    }
+
+    void setMinutos(int minutos){
+        if (minutos >= 0 && minutos <= 59){
+            this.minutos = minutos;
+        } else {
+        System.out.println("Cantidad de minutos a modificar inválida");
+        }
+    }
+
+    int getMinutos(){
+        return this.minutos;
+    }
+
+     public void setMeridiano(String meridiano) {
+        if (meridiano.equals("AM") || meridiano.equals("PM")) {
+            this.meridiano = meridiano;
+        } else {
+            System.out.println("El meridiano proporcionado no es válido");
+        }
+    }
+
+    public String getMeridiano() {
+        return this.meridiano;
+    }
+
+    void sumarHoras(int horasASumar){ 
+        if (horasASumar <= 0) return;
+
+        int totalHoras = this.horas + horasASumar;
+        while (totalHoras > 12) {
+            totalHoras -= 12;
+            cambiarMeridiano();
+        }
+        this.horas = totalHoras;
+    }
+    }
+    
+    void sumarMinutos(int horasASumar){ 
+        if (minutosASumar <= 0) return;
+
+        int totalMinutos = this.minutos + minutosASumar;
+        int horasExtra = totalMinutos / 60;
+        this.minutos = totalMinutos % 60;
+        sumarHoras(horasExtra);
+    }
+
+    @Override
+    public String toString() {
+        return this.horas + ":" + this.minutos + " " + this.meridiano;
+    }
+}
